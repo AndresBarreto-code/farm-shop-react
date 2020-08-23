@@ -1,33 +1,31 @@
 import React, { Component } from 'react'
-import './nav.scss'
-import { Link } from "react-router-dom";
+import './product-card.scss'
 
-export default class Nav extends Component {  
+export default class ProductCard extends Component {  
     render() {
     return (
-        <div>
-            <nav class=" grey lighten-1">
-                <div class="nav-wrapper">
-                    <a href="/spa/catalogo" class="brand-logo">
-                        La Bodega
-                    </a>
-                    <a href="/" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                        <ul class="right hide-on-med-and-down">
-                            <li><Link to="/spa/catalogo"><i class="material-icons">view_comfy</i></Link></li>
-                            <li><Link to="/spa/carrito"><i class="material-icons">shopping_cart</i><small class="notification-badge red">1</small></Link></li>
-                            <li><Link to="/spa/xyz"><i class="material-icons">move_to_inbox</i></Link></li>
-                            <li><Link to="/"><i class="material-icons">keyboard_tab</i></Link></li>
-                        </ul>
+        <div class="card">
+            <div class="card-image center-align">
+                <img class="productImagen" src=""/>
+            </div>
+
+            <div class="card-content">
+                <span class="card-title">Titulo</span>
+                <p>Precio: $00.00</p>
+                <p>Unidades disponibles: 100</p>
+                <div class="row">
+                    <div class="col s5 ">
+                        <a class="btn light-blue darken-4">Ver mas</a>
+                    </div>
+                    <div class="col s3 ">
+                        <a class="btn orange darken-4">A&ntilde;adir</a>
+                    </div>
+                    <div class="col s4 ">
+                        <input class="center-align" type="number" placeholder="1" min='1' max='100'/>
+                    </div>
                 </div>
-            </nav>
-            
-            <ul class="sidenav" id="mobile-demo">
-                <li><Link to="/spa/catalogo">Catalogo</Link></li>
-                <li><Link to="/spa/carrito">Carrito de compras<span class="new badge red white-letter">1</span></Link></li>
-                <li><Link to="/spa/xyz">Cosa que aun no se que es</Link></li>
-                <li><Link to="">Log out</Link></li>
-            </ul>
-        </div>     
+            </div>
+        </div>         
       )
     }
 }

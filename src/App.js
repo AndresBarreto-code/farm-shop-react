@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Login from './Login/login';
 import Nav from './Nav/nav';
+import Catalog from './Catalog/catalog';
 
 import {
   BrowserRouter as Router,
@@ -15,7 +16,9 @@ function App() {
       <Switch>
         <Route path="/spa/catalogo">
           <Nav></Nav>
-          <h1>Catalogo</h1>
+          <div class="">
+            <Catalog></Catalog>
+          </div>
         </Route>
         <Route path="/spa/carrito">
           <Nav></Nav>

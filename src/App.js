@@ -3,6 +3,8 @@ import './App.css';
 import Login from './Login/login';
 import Nav from './Nav/nav';
 import Catalog from './Catalog/catalog';
+import Shop from './Shop/shop';
+import ViewProduct from './ViewProduct/view-peoduct';
 
 import {
   BrowserRouter as Router,
@@ -15,18 +17,36 @@ function App() {
     <Router>
       <Switch>
         <Route path="/spa/catalogo">
-          <Nav></Nav>
-          <div class="">
-            <Catalog></Catalog>
+          <div  class="spa">
+            <Nav></Nav>
+            <div class="container">
+              <Catalog></Catalog>
+            </div>
           </div>
         </Route>
-        <Route path="/spa/carrito">
-          <Nav></Nav>
-          <h1>Carrito</h1>
+        <Route path="/spa/:nombre">
+          <div  class="spa">
+            <Nav></Nav>
+            <div class="container">
+              <ViewProduct></ViewProduct>
+            </div>
+          </div>
         </Route>
-        <Route path="/spa/xyz">
-          <Nav></Nav>
-          <h1>xyz</h1>
+        <Route path="/spa/carrito" class="principal">
+          <div  class="spa">
+            <Nav></Nav>
+            <div class="container">
+              <Shop></Shop>
+            </div>
+          </div>
+        </Route>
+        <Route path="/spa/xyz" class="principal">
+          <div  class="spa">
+            <Nav></Nav>
+            <div class="container">
+              <Catalog></Catalog>
+            </div>
+          </div>
         </Route>
         <Route path="/" exact>
           <Login></Login>

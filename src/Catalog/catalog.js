@@ -44,36 +44,40 @@ export default class Catalog extends Component {
         })
         this.setState({productosMostrar: products});
       }
+
+      addProduct = (qty, prod) => {
+          this.props.addProduct(qty, prod);
+      }
     
     render() {
         let productosHtml = [];
         this.state.productosMostrar.forEach((producto) => {
-            productosHtml.push(<div class="col s12 m4 l3">
-                                    <ProductCard producto={producto}></ProductCard>
+            productosHtml.push(<div className="col s6 m3 l2" key={producto.name}>
+                                    <ProductCard producto={producto} addProduct={this.addProduct}></ProductCard>
                                 </div>
                             )
             return null;            
         })
         return (
-            <div class="card">
-                <div class="row">
-                    <div class="col 12 m6">
-                        <h1 class="hide-on-small-only">Cat&aacute;logo de productos </h1>
-                        <h4 class="hide-on-med-and-up">Cat&aacute;logo de productos </h4>
+            <div className="card">
+                <div className="row">
+                    <div className="col 12 m6">
+                        <h1 className="hide-on-small-only">Cat&aacute;logo de productos </h1>
+                        <h4 className="hide-on-med-and-up">Cat&aacute;logo de productos </h4>
                         <button hidden></button>
                     </div>
-                    <div class="col s12 m6">
-                        <div class="row">
-                            <div class="col s12">
+                    <div className="col s12 m6">
+                        <div className="row">
+                            <div className="col s12">
                                 <h5>¿Qu&eacute; estas buscando?</h5>
                             </div>
-                            <div class="col s12">
-                                <input class="left-align" id="filtro" type="text" placeholder="Digita tu producto" onChange={this.change}/>
+                            <div className="col s12">
+                                <input className="left-align" id="filtro" type="text" placeholder="Digita tu producto" onChange={this.change}/>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row products">
+                <div className="row products">
                     {productosHtml}                    
                 </div>
             </div>

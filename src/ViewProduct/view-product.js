@@ -1,32 +1,30 @@
 import React, { Component } from 'react'
 import './view-product.scss'
-import { Link, useRouteMatch } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from 'axios'
 
 const productosAxios = axios.create({
     baseURL: 'http://localhost:3000/'
 })
 
-export default class ViewProduct extends Component {
-    match = useRouteMatch();
+export default class ViewProduct extends Component {    
     
     constructor(props){
-        super(props);
-        
-        console.log(this.props.match)
+        super(props);        
         this.state = {
             producto: {}
         };
         productosAxios.get('https://farm-store-3487f.firebaseio.com/Products.json')
         .then((res) => {
             Object.keys(res.data).map((key) => {
-                if(res.data[key].name===this.props.match.params.nombre) this.setState({producto:res.data[key]});
+                if(res.data[key].name===this.props.match.params.name) this.setState({producto:res.data[key]});
                 return null;
             });
         })
         .catch((err) => console.log(err));        
     }
     render() {
+        
         return (
             <div class="row view-product white card">
                 <div class="col s12">
@@ -37,7 +35,7 @@ export default class ViewProduct extends Component {
                         </div>
                         <div class="card-stacked">
                             <div class="card-content">
-                                <h4>Precio: ${this.state.producto.precio}</h4>
+                                <h4>Precio: ${this.state.producto.price}</h4>
                                 <h5>Unidades disponibles: {this.state.producto.stock}</h5>
                             </div>
                             <div class="card-action">

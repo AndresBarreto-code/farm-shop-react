@@ -4,7 +4,7 @@ import Login from './Login/login';
 import Nav from './Nav/nav';
 import Catalog from './Catalog/catalog';
 import Shop from './Shop/shop';
-import ViewProduct from './ViewProduct/view-peoduct';
+import ViewProduct from './ViewProduct/view-product';
 
 import {
   BrowserRouter as Router,
@@ -13,37 +13,39 @@ import {
 } from "react-router-dom";
 
 function App() {
+  let addProduct = (qty, prod) => {}
   return (
     <Router>
       <Switch>
         <Route path="/spa/catalogo">
-          <div  class="spa">
-            <Nav></Nav>
-            <div class="container">
-              <Catalog></Catalog>
+          <div  classNameName="spa">
+            <Nav addProduct={addProduct}></Nav>
+            <div classNameName="container">
+              <Catalog addProduct={addProduct}></Catalog>
             </div>
           </div>
         </Route>
-        <Route path="/spa/:nombre">
-          <div  class="spa">
-            <Nav></Nav>
-            <div class="container">
-              <ViewProduct></ViewProduct>
+        <Route path="/spa/:name" render={(props) => 
+            <div  classNameName="spa">
+              <Nav addProduct={addProduct}></Nav>
+              <div classNameName="container">
+                <ViewProduct {...props}></ViewProduct>
+              </div>
             </div>
-          </div>
+          }>          
         </Route>
-        <Route path="/spa/carrito" class="principal">
-          <div  class="spa">
-            <Nav></Nav>
-            <div class="container">
+        <Route path="/spa/carrito" className="principal">
+          <div  classNameName="spa">
+            <Nav addProduct={addProduct}></Nav>
+            <div className="container">
               <Shop></Shop>
             </div>
           </div>
         </Route>
-        <Route path="/spa/xyz" class="principal">
-          <div  class="spa">
-            <Nav></Nav>
-            <div class="container">
+        <Route path="/spa/xyz" className="principal">
+          <div  className="spa">
+            <Nav addProduct={addProduct}></Nav>
+            <div className="container">
               <Catalog></Catalog>
             </div>
           </div>
